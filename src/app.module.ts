@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
+import { Profile } from './users/profile.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { User } from './users/user.entity';
       entities: [
         //"src/entity/**/*.ts"
         //__dirname + '/**/*.entity{.ts,.js}'
-        User
+        User, Profile
       ]
     }),
     UsersModule],
