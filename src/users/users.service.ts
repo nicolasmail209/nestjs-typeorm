@@ -31,14 +31,17 @@ export class UsersService {
     }
 
     getUsers() {
-        return this.userRepository.find()
+        return this.userRepository.find({
+            relations: ['posts', 'profile']
+        })
     }
 
     async getUser(id: number) {
         const userFound = await this.userRepository.findOne({
             where: {
                 id: id
-            }
+            },
+            relations: ['posts']
         });
 
         if(!userFound){
